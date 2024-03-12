@@ -7,11 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
-
-
-
 public class Main {
     public static void main( String[] args )
     {
@@ -42,7 +37,7 @@ public class Main {
                     break;
             }
             ManejoCartas = factory.createMap(implementation);
-            ArrayList<String[]> myCartas = readCSV("C:\\Users\\dijol\\OneDrive - UVG\\Universidad\\Ciclo 3\\Algoritmos\\programas\\hj6\\src\\main\\java\\com\\example\\cards_desc.txt");
+            ArrayList<String[]> myCartas = readCSV("C:\\Users\\maroc\\OneDrive - Colegio Jacques Cousteu\\Documentos\\GitHub\\HDT-6\\cards_desc.txt");
             long startTime = System.nanoTime();
             for (String[] card : myCartas) {
                 ManejoCartas.addCarta(card[0], new Carta(card[0], card[1]));
@@ -150,7 +145,7 @@ public class Main {
             long deltaTimeMap = System.nanoTime() - startTime;
             myTimes.add(new String[]{String.valueOf(i), String.valueOf(deltaTimeMap)});
         }
-        exportToCSV(myTimes, "C:\\Users\\dijol\\OneDrive - UVG\\Universidad\\Ciclo 3\\Algoritmos\\programas\\hj6\\src\\main\\java\\com\\example\\times.csv");
+        exportToCSV(myTimes, "C:\\Users\\maroc\\OneDrive - Colegio Jacques Cousteu\\Documentos\\GitHub\\HDT-6\\cards_desc.txt");
         
     }
 

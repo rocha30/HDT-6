@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CardManagerTest {
 
@@ -9,7 +7,6 @@ class CardManagerTest {
 
         // Agrega pruebas específicas para HashMapCardManager
         assertNotNull((Carta) ManejoCartas);
-        // ...
 
         // Prueba de agregar una carta y recuperarla
         Carta card = new Carta("Ejemplo", "TipoEjemplo");
@@ -19,7 +16,7 @@ class CardManagerTest {
         assertNotNull(retrievedCard);
         assertEquals(card, retrievedCard);
 
-        // Agrega más pruebas según sea necesario para HashMapCardManager
+       
     }
 
     private void assertNotNull(Carta retrievedCard) {
@@ -28,13 +25,8 @@ class CardManagerTest {
     }
 
     @Test
-    void testLinkedHashMapCardManager() {
+    void testLinkedHash() {
         ManejoCartas<String, Carta> ManejoCartas = new LinkedHash();
-
-        // Agrega pruebas específicas para LinkedHashMapCardManager
-        assertNotNull(ManejoCartas);
-        // ...
-
         // Prueba de agregar una carta y recuperarla
         Carta card = new Carta("Ejemplo", "TipoEjemplo");
         ManejoCartas.addCarta("Ejemplo", card);
@@ -43,7 +35,7 @@ class CardManagerTest {
         assertNotNull(retrievedCard);
         assertEquals(card, retrievedCard);
 
-        // Agrega más pruebas según sea necesario para LinkedHashMapCardManager
+       
     }
 
     @Test
@@ -52,7 +44,6 @@ class CardManagerTest {
 
         // Agrega pruebas específicas para TreeMapCardManager
         assertNotNull((Carta) ManejoCartas);
-        // ...
 
         // Prueba de agregar una carta y recuperarla
         Carta card = new Carta("Ejemplo", "TipoEjemplo");
@@ -62,7 +53,6 @@ class CardManagerTest {
         assertNotNull(retrievedCard);
         assertEquals(card, retrievedCard);
 
-        // Agrega más pruebas según sea necesario para TreeMapCardManager
     }
 
     private void assertEquals(Carta card, Carta retrievedCard) {

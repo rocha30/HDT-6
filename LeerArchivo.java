@@ -13,6 +13,7 @@ public class LeerArchivo {
             while ((linea = lector.readLine()) != null) {
                 partes = linea.split("\\|"); // Escapamos el carácter "|"
                 System.out.println();
+                imprimirLinea();
             }
             lector.close();
             linea = null; 
@@ -22,6 +23,13 @@ public class LeerArchivo {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
+    public void imprimirLinea() {
+        for (int i = 0; i < partes.length; i++) {
+            System.out.println(partes[i] + "  |  "); 
+        }
+    }
+    
 
 }
 

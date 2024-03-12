@@ -1,33 +1,17 @@
-import java.util.Objects;
-
 public class Carta {
-    private String nombre ; 
-    private String tipo; 
+    private String name;
+    private String type;
 
-
-    public Carta (String nombre, String tipo){
-        this.nombre = nombre;
-        this.tipo=tipo;
+    public Carta(String name, String type) {
+        this.name = name;
+        this.type = type;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Carta carta = (Carta) o;
-        return Objects.equals(nombre, carta.nombre);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nombre);
+    public String getType() {
+        return type;
     }
 }

@@ -15,10 +15,11 @@ import java.util.Scanner;
 public class Main {
     public static void main( String[] args )
     {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
         Factory factory = new Factory();
         String implementation = "HashMap";
-        ManejoCartas<String,Carta> cardManager;
+        ManejoCartas<String,Carta> ManejoCartas;
         boolean bucle = true;
         try {
             
@@ -40,11 +41,11 @@ public class Main {
                 default:
                     break;
             }
-            cardManager = factory.createMap(implementation);
+            ManejoCartas = factory.createMap(implementation);
             ArrayList<String[]> myCartas = readCSV("C:\\Users\\dijol\\OneDrive - UVG\\Universidad\\Ciclo 3\\Algoritmos\\programas\\hj6\\src\\main\\java\\com\\example\\cards_desc.txt");
             long startTime = System.nanoTime();
             for (String[] card : myCartas) {
-                cardManager.addCarta(card[0], new Carta(card[0], card[1]));
+                ManejoCartas.addCarta(card[0], new Carta(card[0], card[1]));
             }
             long deltaTimeMap = System.nanoTime() - startTime;
 
@@ -65,19 +66,19 @@ public class Main {
                         scanner.nextLine();
                         System.out.println("Ingrese el nombre de la carta que desea agregar: ");
                         String card = scanner.nextLine();
-                        Carta cardToAdd = cardManager.getCarta(card);
+                        Carta cardToAdd = ManejoCartas.getCarta(card);
                         if (cardToAdd == null) {
                             System.out.println("La carta no existe");
                             break;
                         }else{
-                            cardManager.addUserCarta(card, cardToAdd);
+                            ManejoCartas.addUserCarta(card, cardToAdd);
                             break;
                         }
                     case 2:
                         scanner.nextLine();
                         System.out.println("Ingrese el nombre de la carta: ");
                         String cardName = scanner.nextLine();
-                        Carta finded = cardManager.getCarta(cardName);
+                        Carta finded = ManejoCartas.getCarta(cardName);
                         if (finded == null) {
                             System.out.println("La carta no existe");
                             break;
@@ -87,19 +88,19 @@ public class Main {
                         }
                         
                     case 3:
-                        cardManager.showUserCartas();
+                        ManejoCartas.showUserCartas();
                         break;
                     case 4:
-                        cardManager.showSortedUserCartas();
+                        ManejoCartas.showSortedUserCartas();
                         break;
                     case 5:
                         long startTimeShow = System.nanoTime();
-                        cardManager.showCartas();
+                        ManejoCartas.showCartas();
                         long deltaTimeTotal = (System.nanoTime() - startTimeShow) + deltaTimeMap;
                         System.out.println("Tiempo de ejecución total: " + deltaTimeTotal);
                         break;
                     case 6:
-                        cardManager.showSortedCartas();
+                        ManejoCartas.showSortedCartas();
                         break;
                     case 7:
                         bucle = false;
@@ -140,11 +141,11 @@ public class Main {
         ArrayList<String[]> myTimes = new ArrayList<String[]>();
         for (int i = 0; i < myCartas.size(); i++) {
             
-            ManejoCartas<String,Carta> cardManager = new Hashmap();
+            ManejoCartas<String,Carta> ManejoCartas = new Hashmap();
             List<String[]> subList = myCartas.subList(0, i);
             long startTime = System.nanoTime();
             for (String[] card : subList) {
-                cardManager.addCarta(card[0], new Carta(card[0], card[1]));
+                ManejoCartas.addCarta(card[0], new Carta(card[0], card[1]));
             }
             long deltaTimeMap = System.nanoTime() - startTime;
             myTimes.add(new String[]{String.valueOf(i), String.valueOf(deltaTimeMap)});
